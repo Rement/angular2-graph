@@ -16,8 +16,8 @@ export class TreeComponent {
     public nodes;
     @Input() public isEditable: boolean;
     @Input() public isMouseActions: boolean;
+    public paneTransform;
     private paneDragging = false;
-    private paneTransform;
     private zoom = 1;
     private paneX = 0;
     private paneY = 0;
@@ -60,7 +60,7 @@ export class TreeComponent {
     public onmousemove(event) {
         if (this.isMouseActions) {
             if (this.paneDragging) {
-                let {movementX, movementY} = event;
+                const {movementX, movementY} = event;
                 this.paneX += movementX;
                 this.paneY += movementY;
                 this.makeTransform();
