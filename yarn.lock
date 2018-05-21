@@ -313,11 +313,6 @@ angular2-template-loader@^0.6.2:
   resolved "https://registry.yarnpkg.com/angular2-template-loader/-/angular2-template-loader-0.6.2.tgz#c0d44e90fff0fac95e8b23f043acda7fd1c51d7c"
   dependencies:
     loader-utils "^0.2.15"
-
-angular2-tree-diagram@^1.0.2:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/angular2-tree-diagram/-/angular2-tree-diagram-1.0.6.tgz#60ddce1b44cd591bf706b02e821e4f539f8b972b"
-
 ansi-align@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-2.0.0.tgz#c36aeccba563b89ceb556f3690f0b1d9e3547f7f"

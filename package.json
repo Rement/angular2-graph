@@ -10,7 +10,7 @@
     "typescript"
   ],
   "author": "Patrick Stapleton <patrick@angularclass.com>",
-  "homepage": "https://github.com/AngularClass/angular-starter",
+  "homepage": "https://github.com/Rement/angular2-graph.git",
   "license": "MIT",
   "scripts": {
     "build:aot:prod": "npm run clean:dist && npm run clean:aot && cross-env BUILD_AOT=1 npm run webpack -- --config config/webpack.prod.js  --progress --profile --bail",
@@ -84,7 +84,6 @@
     "@angular/router": "~4.3.1",
     "@angularclass/hmr": "~1.2.2",
     "@angularclass/hmr-loader": "^3.0.4",
-    "angular2-tree-diagram": "^1.0.2",
     "core-js": "^2.4.1",
     "http-server": "^0.9.0",
     "ie-shim": "^0.1.0",
@@ -162,10 +161,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AngularClass/angular-starter.git"
+    "url": "https://github.com/Rement/angular2-graph.git"
   },
   "bugs": {
-    "url": "https://github.com/AngularClass/angular-starter/issues"
+    "url": "https://github.com/Rement/angular2-graph.git"
   },
   "engines": {
     "node": ">= 4.2.1",

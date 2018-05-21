@@ -9,7 +9,7 @@ import {
  * Load the implementations that should be tested
  */
 import { TreeComponent } from './tree.component';
-import { NodesListService } from './services/nodesList.servic';
+import { NodesListService } from './services/nodesList.service';
 
 describe(`Tree`, () => {
     let comp: TreeComponent;
