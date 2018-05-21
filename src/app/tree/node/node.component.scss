@@ -1,0 +1,248 @@
+@mixin tree-button{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.toggler{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  background: #2c4c63;
+  margin: 0 auto;
+  display: none;
+  z-index: 10;
+  @include tree-button;
+}
+.children-count{
+  display: none;
+}
+.tree-element-has-children{
+  > .tree-element-main{
+    .toggler{
+      display: block;
+    }
+    .rect {
+
+    }
+    .children-count{
+      display: inline;
+    }
+  }
+  > .tree-children{
+    display: inline-block;
+  }
+
+}
+.rect {
+  position: relative;
+  background-color: #fafafa !important;
+  border: 1px solid #dadada;
+  box-sizing: border-box;
+  -webkit-print-color-adjust:exact;
+  cursor: default !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border-radius: 7px;
+}
+.tree-element-main {
+  text-align: center;
+  margin: 0 auto;
+  &:hover{
+    .buttons{
+      display: block;
+    }
+  }
+  &.expanded{
+    .rect{
+      background-color: #bce5ff !important;
+    }
+    .toggler {
+      transform: rotateZ(-45deg);
+      background: #427396;
+    }
+  }
+  &.dragover{
+    .rect{
+      box-shadow: 0 0 5px #427396;
+    }
+  }
+  &.dragging{
+    .buttons{
+      display: none !important;
+    }
+    .tree-node:before{
+      display: none !important;
+    }
+  }
+}
+.tree-element-container {
+  z-index: 100;
+}
+.tree-children {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  perspective: 3000px;
+  perspective-origin: center bottom;
+  &:before {
+    content: "";
+    width: calc(50% - 1px);
+    position: absolute;
+    height: 30px;
+    left: 0;
+    top: -45px;
+    border-right: 1px solid #dadada;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+.line-to {
+  position: absolute;
+  top: -30px;
+  border-top: 1px solid #dadada;
+  width: calc(100% + 30px);
+  display: none;
+}
+
+.tree-node {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  vertical-align: top;
+  &:before {
+    content: "";
+    width: calc(50% - 1px);
+    position: absolute;
+    height: 30px;
+    left: 0;
+    top: -30px;
+    border-right: 1px solid #dadada;
+  }
+  &:only-of-type{
+    > .line-to{
+      display: none !important;
+    }
+  }
+}
+
+.buttons{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  .delete{
+    @include tree-button;
+    background-color: #a34851;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+  .add{
+    @include tree-button;
+    background-color: #256947;
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    &:before{
+      content: '';
+      position: absolute;
+      height: 12px;
+      width: 4px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: #2ba423;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 4px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: #2ba423;
+    }
+  }
+}
+.tree-text{
+  z-index: 10;
+  span{
+    cursor: pointer;
+  }
+}
+
+.status-style {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-style: italic;
+}
+
+.tree-elements-group {
+  position: relative;
+  & > div {
+    & > .line-to {
+      left:0;
+      display: block;
+    }
+  }
+  & > div:first-of-type {
+    & > .line-to {
+      right: -30px;
+      width: calc(50% + 30px);
+      display: block;
+      left: auto;
+    }
+  }
+  & > div:last-of-type {
+    & > .line-to {
+      left: 0;
+      right: auto;
+      width: 50%;
+      display: block;
+    }
+  }
+  > .tree-child:last-child {
+    margin-right: 0;
+  }
+  > .tree-child:first-child {
+    margin-left: 0;
+  }
+}
+
+.tree-text-non-editable{
+  display: none;
+}
+.tree-new-node{
+  .rect{
+    opacity:0.5;
+    border: 1px dashed #dadada;
+    cursor: pointer !important;
+  }
+  &:hover, &.dragover{
+    .rect{
+      opacity:1;
+    }
+  }
+  .tree-children, .buttons{
+    display: none !important;
+  }
+  .tree-text-non-editable{
+    display: block;
+  }
+  .tree-text-editable{
+    display: none;
+  }
+}
