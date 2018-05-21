@@ -43,5 +43,9 @@
   "buildOnSave": false,
   "atom": {
     "rewriteTsconfig": false
-  }
+  },
+  "include": [
+    "./**",
+    "./index.ts"
+  ]
 }
