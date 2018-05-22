@@ -39,8 +39,6 @@ export class TreeComponent {
 
     constructor(private nodesSrv: NodesListService,
                 private sanitizer: DomSanitizer) {
-        this.isEditable = true;
-        this.isMouseActions = true;
     }
 
     public newNode() {

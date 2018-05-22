@@ -19,7 +19,6 @@ export class NodeComponent {
     @Input() public isEditable: boolean;
 
     constructor(private nodesSrv: NodesListService, private sanitizer: DomSanitizer) {
-        this.isEditable = true;
     }
 
     @Input()
