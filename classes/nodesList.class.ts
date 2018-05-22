@@ -21,14 +21,14 @@ export class TreeDiagramNodesList {
         });
         this._makeRoots();
         this.makerGuid = this.uuidv4();
-        let node = {
+        const node = {
             guid: this.makerGuid,
             parentId: 'root',
             children: [],
             status: '',
             displayName: 'New node'
         };
-        let maker = new TreeDiagramNodeMaker(node, this.config, this.getThisNodeList.bind(this));
+        const maker = new TreeDiagramNodeMaker(node, this.config, this.getThisNodeList.bind(this));
         this._nodesList.set(this.makerGuid, maker);
     }
 
@@ -41,32 +41,32 @@ export class TreeDiagramNodesList {
     }
 
     public rootNode(guid: string) {
-        let node = this.getNode(guid);
+        const node = this.getNode(guid);
         node.isDragging = false;
         node.isDragover = false;
         if (node.parentId) {
-            let parent = this.getNode(node.parentId);
+            const parent = this.getNode(node.parentId);
             parent.children.delete(guid);
         }
         node.parentId = null;
         this._makeRoots();
-        let maker = this.getNode(this.makerGuid);
+        const maker = this.getNode(this.makerGuid);
         maker.isDragging = false;
         maker.isDragover = false;
     }
 
     public transfer(origin: string, target: string) {
-        let _origin = this.getNode(origin);
-        let _target = this.getNode(target);
+        const _origin = this.getNode(origin);
+        const _target = this.getNode(target);
         _origin.isDragover = false;
         _origin.isDragging = false;
         _target.isDragover = false;
         if (_origin.parentId === target || origin === target) {
             return;
         }
-        let remakeRoots = _origin.isRoot();
+        const remakeRoots = _origin.isRoot();
         if (_origin.parentId) {
-            let _parent = this.getNode(_origin.parentId);
+            const _parent = this.getNode(_origin.parentId);
             _parent.children.delete(origin);
             if (!_parent.hasChildren()) {
                 _parent.toggle(false);
@@ -83,9 +83,9 @@ export class TreeDiagramNodesList {
     }
 
     public toggleSiblings(guid: string) {
-        let target = this.getNode(guid);
+        const target = this.getNode(guid);
         if (target.parentId) {
-            let parent = this.getNode(target.parentId);
+            const parent = this.getNode(target.parentId);
             parent.children.forEach((nodeGuid) => {
                 if (nodeGuid === guid) {
                     return;
@@ -93,7 +93,7 @@ export class TreeDiagramNodesList {
                 this.getNode(nodeGuid).toggle(false);
             });
         } else {
-            for (let root of this.roots) {
+            for (const root of this.roots) {
                 if (root.guid === guid) {
                     continue;
                 }
@@ -103,9 +103,9 @@ export class TreeDiagramNodesList {
     }
 
     public serialize() {
-        let out = [];
+        const out = [];
         this._nodesList.forEach((node: TreeDiagramNode) => {
-            let json: any = {
+            const json: any = {
                 guid: node.guid,
                 displayName: node.displayName,
                 status: node.status,
@@ -118,14 +118,14 @@ export class TreeDiagramNodesList {
     }
 
     public destroy(guid: string) {
-        let target = this.getNode(guid);
+        const target = this.getNode(guid);
         if (target.parentId) {
-            let parent = this.getNode(target.parentId);
+            const parent = this.getNode(target.parentId);
             parent.children.delete(guid);
         }
         if (target.hasChildren()) {
             target.children.forEach((child: string) => {
-                let theNode = this.getNode(child);
+                const theNode = this.getNode(child);
                 theNode.parentId = null;
             });
         }
@@ -134,7 +134,7 @@ export class TreeDiagramNodesList {
     }
 
     public newNode(parentId = null) {
-        let _nodeTemplate = Object.assign({}, this._nodeTemplate);
+        const _nodeTemplate = Object.assign({}, this._nodeTemplate);
         _nodeTemplate.guid = this.uuidv4();
         _nodeTemplate.parentId = parentId;
         _nodeTemplate.status = '';
@@ -151,8 +151,8 @@ export class TreeDiagramNodesList {
 
     private uuidv4() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-            let r = Math.random() * 16 | 0;
-            let v = c === 'x' ? r : (r & 0x3 | 0x8);
+            const r = Math.random() * 16 | 0;
+            const v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
     }
