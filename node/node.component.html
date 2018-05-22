@@ -21,7 +21,7 @@
          (dragend)="node.dragend($event)"
          (dragleave)="node.dragleave($event)"
     >
-        <div class="rect"
+        <div class="rect {{node.status}}"
              [style.width.px]="node.width"
              [style.height.px]="node.height"
         >
