@@ -1,6 +1,7 @@
 import { TreeDiagramNodesList } from './nodesList.class';
 
 export class TreeDiagramNode {
+    public isMaker = true;
     public parentId: string | null;
     public guid: string;
     public width: number;
