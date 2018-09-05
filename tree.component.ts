@@ -67,7 +67,6 @@ export class TreeComponent {
     }
 
     public onmouseup() {
-        console.log(this.isMouseActions);
         if (this.isMouseActions) {
             this.paneDragging = false;
         }
