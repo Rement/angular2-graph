@@ -16,6 +16,7 @@ export class TreeComponent {
     public nodes;
     @Input() public isEditable: boolean;
     @Input() public isMouseActions: boolean;
+    @Output() public selectNode = new EventEmitter();
     public paneTransform;
     private paneDragging = false;
     private zoom = 1;
@@ -70,6 +71,10 @@ export class TreeComponent {
         if (this.isMouseActions) {
             this.paneDragging = false;
         }
+    }
+    
+    public selectNodeEvent(node) {
+        this.selectNode.emit(node);
     }
 
     public makeTransform() {
