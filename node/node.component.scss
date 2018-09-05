@@ -57,9 +57,6 @@
     }
   }
   &.expanded{
-    .rect{
-      background-color: #bce5ff !important;
-    }
     .toggler {
       transform: rotateZ(-45deg);
       background: #427396;
