@@ -17,6 +17,7 @@
                  [isEditable]="isEditable"
                  class="tree-root tree-node"
                  (mousedown)="preventMouse($event)"
+                 (click)="selectNodeEvent(node)"
                  *ngFor="let node of nodes.roots"
             ></div>
             <div *ngIf='isEditable'
