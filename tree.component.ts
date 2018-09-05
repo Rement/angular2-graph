@@ -1,6 +1,6 @@
 import {
-    Component,
-    Input, OnInit
+    Component, Output,
+    Input, OnInit, EventEmitter
 } from '@angular/core';
 
 import { NodesListService } from './services/nodesList.service';
@@ -72,7 +72,7 @@ export class TreeComponent {
             this.paneDragging = false;
         }
     }
-    
+
     public selectNodeEvent(node) {
         this.selectNode.emit(node);
     }
