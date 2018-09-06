@@ -83,7 +83,7 @@ export class TreeDiagramNodesList {
     }
 
     public toggleSiblings(guid: string) {
-        const target = this.getNode(guid);
+        /* const target = this.getNode(guid);
         if (target.parentId) {
             const parent = this.getNode(target.parentId);
             parent.children.forEach((nodeGuid) => {
@@ -99,7 +99,7 @@ export class TreeDiagramNodesList {
                 }
                 root.toggle(false);
             }
-        }
+        } */
     }
 
     public serialize() {
