@@ -23,7 +23,7 @@ export class TreeDiagramNode {
             }
         }
 
-        this._toggle = false;
+        this._toggle = true;
         this.status = props.status;
 
         if (config.nodeWidth) {
