@@ -27,9 +27,9 @@
         >
             <div class="buttons">
                 <div class="delete" *ngIf="isEditable" (click)="node.destroy()"></div>
-                <!--<div class="toggler"
+                <div class="toggler"
                      (click)="node.toggle()"
-                ></div>-->
+                ></div>
                 <div class="add" *ngIf="isEditable" (click)="node.addChild()"></div>
             </div>
             <div class="tree-text tree-text-non-editable">
