@@ -32,11 +32,17 @@
                 ></div>
                 <div class="add" *ngIf="isEditable" (click)="node.addChild()"></div>
             </div>
-            <div class="tree-text tree-text-non-editable">
-                <span>{{node.displayName}}</span>
-            </div>
+            <table>
+                <tr>
+                    <h4><span class="display-name strong">{{node.displayName}}</span></h4>
+                </tr>
+                <tr>
+                    <h6><span class="description-name text-muted" [title]="node.description">{{node.description}}</span></h6>
+                </tr>
+            </table>
             <div class="tree-text tree-text-editable" *ngIf="isEditable">
-                <span #disaplyName contenteditable [innerHtml]="node.displayName" (blur)="node.displayName=$event.srcElement.innerText"></span>
+                <span #disaplyName contenteditable [innerHtml]="node.displayName"
+                      (blur)="node.displayName=$event.srcElement.innerText"></span>
                 <span class="children-count"> ({{node.childrenCount()}})</span>
             </div>
             <div class="tree-text tree-text-editable" *ngIf="!isEditable">
