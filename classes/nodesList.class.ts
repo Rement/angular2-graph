@@ -10,6 +10,7 @@ export class TreeDiagramNodesList {
         children: [],
         guid: '',
         status: '',
+        description: '',
         parentId: null
     };
     private _nodesList = new Map();
@@ -26,6 +27,7 @@ export class TreeDiagramNodesList {
             parentId: 'root',
             children: [],
             status: '',
+            description: '',
             displayName: 'New node'
         };
         const maker = new TreeDiagramNodeMaker(node, this.config, this.getThisNodeList.bind(this));
@@ -109,6 +111,7 @@ export class TreeDiagramNodesList {
                 guid: node.guid,
                 displayName: node.displayName,
                 status: node.status,
+                description: node.description,
                 parentId: node.parentId
             };
             json.children = Array.from(node.children);
@@ -138,6 +141,7 @@ export class TreeDiagramNodesList {
         _nodeTemplate.guid = this.uuidv4();
         _nodeTemplate.parentId = parentId;
         _nodeTemplate.status = '';
+        _nodeTemplate.description = '';
         this._nodesList.set
         (_nodeTemplate.guid, new TreeDiagramNode
         (_nodeTemplate, this.config, this.getThisNodeList.bind(this)));
