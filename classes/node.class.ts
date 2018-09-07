@@ -10,6 +10,7 @@ export class TreeDiagramNode {
     public isDragging: boolean;
     public children: Set<string>;
     public displayName: string;
+    public description: string;
     public status: string;
     private _toggle: boolean;
 
