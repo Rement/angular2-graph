@@ -27,7 +27,6 @@ export class NodeComponent {
         this.childrenTransform = this.sanitizer.bypassSecurityTrustStyle
         (`translate(calc(-50% + ${Math.round(this.node.width / 2)}px), 45px)`);
     }
-    
     public getStatus(node): string {
         if (node.status === 'warn') {
             return 'Waiting';
