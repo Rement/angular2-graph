@@ -38,6 +38,7 @@
                 </tr>
                 <tr>
                     <h6><span class="description-name text-muted" [title]="node.description">{{node.description}}</span></h6>
+                    <h6><span class="description-name text-muted">{{getStatus(node)}}</span></h6>
                 </tr>
             </table>
             <div class="tree-text tree-text-editable" *ngIf="isEditable">
