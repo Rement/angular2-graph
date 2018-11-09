@@ -1,8 +1,4 @@
-import {
-    Component,
-    Input
-} from '@angular/core';
-
+import { Component, Input } from '@angular/core';
 import { NodesListService } from '../services/nodesList.service';
 import { TreeDiagramNode } from '../classes/node.class';
 import { DomSanitizer } from '@angular/platform-browser';
